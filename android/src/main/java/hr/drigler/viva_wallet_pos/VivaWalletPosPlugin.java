@@ -189,7 +189,7 @@ public class VivaWalletPosPlugin implements FlutterPlugin, MethodCallHandler, Ac
 
     sendRequest(request);
   }
-
+  
   private void saleRequest(MethodCall call) {
 
     final String request = VWP_CLIENT
@@ -202,6 +202,16 @@ public class VivaWalletPosPlugin implements FlutterPlugin, MethodCallHandler, Ac
             + addArgument(call, "show_receipt")
             + addArgument(call, "show_transaction_result")
             + addArgument(call, "show_rating")
+            + addArgument(call, "withInstallments")
+            + addArgument(call, "preferredInstallments")
+            + addArgument(call, "ISV_amount")
+            + addArgument(call, "ISV_clientId")
+            + addArgument(call, "ISV_clientSecret")
+            + addArgument(call, "ISV_sourceCode")
+            + addArgument(call, "ISV_merchantId")
+            + addArgument(call, "ISV_merchantSourceCode")
+            + addArgument(call, "ISV_customerTrns")
+            + addArgument(call, "ISV_clientTransactionId")
             + "&protocol=int_default"
             + "&callback=" + callbackScheme;
 
