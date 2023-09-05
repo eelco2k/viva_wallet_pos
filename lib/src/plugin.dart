@@ -124,6 +124,8 @@ class VivaWalletPos {
     bool showReceipt = true,
     bool showTransactionResult = true,
     bool showRating = true,
+    Map<String, dynamic>? isv,
+    Map<String, dynamic>? installments,
   }) async {
     final Map<String, dynamic> params = <String, dynamic>{
       'merchantKey': merchantKey ?? 'deprecated',
@@ -134,6 +136,13 @@ class VivaWalletPos {
       'show_transaction_result': showTransactionResult,
       'show_rating': showRating,
     };
+
+    if(isv.isNotEmpty) {
+      params.addAll(isv);
+    }
+    if(installments.isNotEmpty) {
+      params.addAll(installments);
+    }
 
     final data = await _invokePosMethod('saleRequest', params);
 
